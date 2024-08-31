@@ -1,34 +1,37 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using TrustedVoteLibrary;
 
 class Program
 {
     static void Main()
     {
-        // Setup PKI for the voting authority
-        var authorityRsa = RSA.Create();
-        var authorityCert = CertificateManager.GenerateSelfSignedCertificate("Voting Authority", authorityRsa);
+        // Voter's Information
+        string stateAbbreviation = "AR";  // Example: Arkansas
+        string votingDistrict = "District 42";
+        string guid = Guid.NewGuid().ToString();
+        string issuerId = "Issuer123";
 
-        // Voter Registration
-        var voterRsa = RSA.Create();
-        var voterCert = CertificateManager.GenerateSelfSignedCertificate("Voter 1", voterRsa);
+        // Generate RSA Key Pair
+        var (rsa, publicKey, privateKey) = PKIManager.GenerateKeys();
 
-        var registration = new VoterRegistration();
-        registration.RegisterVoter("Voter1", voterCert);
+        // Generate the Voter Certificate with the RSA key and custom extensions
+        var voterCertificate = CertificateManager.GenerateVoterCertificateWithExtensions(
+            stateAbbreviation, votingDistrict, guid, issuerId, rsa);
 
-        // Voting
-        string vote = "Candidate A";
-        var signedVote = Voting.SignVote(vote, voterRsa);
-        var encryptedVote = VoteEncryption.EncryptVote(vote, authorityRsa);
+        // Display Certificate Information
+        Console.WriteLine("Voter Certificate:");
+        Console.WriteLine($"Subject: {voterCertificate.Subject}");
+        Console.WriteLine($"Issuer: {voterCertificate.Issuer}");
+        Console.WriteLine($"Serial Number: {voterCertificate.SerialNumber}");
+        Console.WriteLine($"Thumbprint: {voterCertificate.Thumbprint}");
+        Console.WriteLine($"Public Key: {publicKey}");
 
-        // Vote Verification
-        var verified = VoteVerification.VerifyVote(vote, signedVote, voterRsa);
-        Console.WriteLine("Vote verification: " + (verified ? "Success" : "Failure"));
+        // Optionally, save the certificate to a file
+        byte[] certData = voterCertificate.Export(X509ContentType.Pfx);
+        System.IO.File.WriteAllBytes("voter_cert_with_issuer.pfx", certData);
 
-        // Vote Counting
-        var decryptedVote = VoteCounting.DecryptVote(encryptedVote, authorityRsa);
-        Console.WriteLine("Decrypted vote: " + decryptedVote);
+        // Dispose of the RSA object
+        rsa.Dispose();
     }
 }

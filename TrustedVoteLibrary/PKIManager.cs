@@ -1,16 +1,14 @@
-﻿namespace TrustedVoteLibrary;
-
-using System;
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 
 public class PKIManager
 {
-    public static (string publicKey, string privateKey) GenerateKeys()
+    public static (RSA rsa, string publicKey, string privateKey) GenerateKeys()
     {
-        using (var rsa = RSA.Create())
+        using (RSA rsa = RSA.Create(2048))  // Generate a 2048-bit RSA key pair
         {
-            return (Convert.ToBase64String(rsa.ExportRSAPublicKey()), 
-                Convert.ToBase64String(rsa.ExportRSAPrivateKey()));
+            string publicKey = Convert.ToBase64String(rsa.ExportRSAPublicKey());
+            string privateKey = Convert.ToBase64String(rsa.ExportRSAPrivateKey());
+            return (rsa, publicKey, privateKey);
         }
     }
 }
