@@ -16,20 +16,20 @@ class Program
         var (rsa, publicKey, privateKey) = PKIManager.GenerateKeys();
 
         // Generate the Voter Certificate with the RSA key and custom extensions
-        var voterCertificate = CertificateManager.GenerateVoterCertificateWithExtensions(
-            stateAbbreviation, votingDistrict, guid, issuerId, rsa);
+        // var voterCertificate = CertificateManager.GenerateVoterCertificateWithExtensions(
+        //     stateAbbreviation, votingDistrict, guid, issuerId, rsa);
 
         // Display Certificate Information
-        Console.WriteLine("Voter Certificate:");
-        Console.WriteLine($"Subject: {voterCertificate.Subject}");
-        Console.WriteLine($"Issuer: {voterCertificate.Issuer}");
-        Console.WriteLine($"Serial Number: {voterCertificate.SerialNumber}");
-        Console.WriteLine($"Thumbprint: {voterCertificate.Thumbprint}");
-        Console.WriteLine($"Public Key: {publicKey}");
-
-        // Optionally, save the certificate to a file
-        byte[] certData = voterCertificate.Export(X509ContentType.Pfx);
-        System.IO.File.WriteAllBytes("voter_cert_with_issuer.pfx", certData);
+        // Console.WriteLine("Voter Certificate:");
+        // Console.WriteLine($"Subject: {voterCertificate.Subject}");
+        // Console.WriteLine($"Issuer: {voterCertificate.Issuer}");
+        // Console.WriteLine($"Serial Number: {voterCertificate.SerialNumber}");
+        // Console.WriteLine($"Thumbprint: {voterCertificate.Thumbprint}");
+        // Console.WriteLine($"Public Key: {publicKey}");
+        //
+        // // Optionally, save the certificate to a file
+        // byte[] certData = voterCertificate.Export(X509ContentType.Pfx);
+        // System.IO.File.WriteAllBytes("voter_cert_with_issuer.pfx", certData);
 
         // Dispose of the RSA object
         rsa.Dispose();

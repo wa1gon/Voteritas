@@ -8,16 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81313d99-1273-4820-bca0-1b0b3c676d0c" name="Changes" comment="inital code">
-      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/ZGlobalUsing.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrustedVoteLibraryTest/KeyGeneratorTest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrustedVoteLibraryTest/TrustedVoteLibraryTest.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrustedVotingSystem.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrustVotingCLI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrustVotingCLI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustVotingCLI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustVotingCLI/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TrustedVoteLibrary/CertificateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVoteLibrary/CertificateManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustedVoteLibrary/PKIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVoteLibrary/PKIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustedVotingSystem.sln" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVotingSystem.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +20,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;wa1gon&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/wa1gon/TrustVoting.git&quot;,
+    &quot;accountId&quot;: &quot;2d8641ea-dc9a-400b-94b5-4eb8ac7c14e8&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/TrustedVoteLibraryTest/KeyGeneratorTest.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -95,7 +100,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725060017090</updated>
-      <workItem from="1725060018253" duration="4414000" />
+      <workItem from="1725060018253" duration="9496000" />
     </task>
     <task id="LOCAL-00001" summary="inital code">
       <option name="closed" value="true" />
@@ -148,16 +153,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs</url>
-          <line>22</line>
+          <line>33</line>
           <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustedVoteLibraryTest\TestGenerateVoterCerificateWithExtensions.cs" containingFunctionPresentation="Method 'TestGenerateVoterCertificateWithExtensions'">
             <startOffsets>
-              <option value="633" />
+              <option value="1515" />
             </startOffsets>
             <endOffsets>
-              <option value="690" />
+              <option value="1650" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,3 +1,5 @@
+using TrustedVoteLibrary;
+
 namespace TestProject1;
 [TestClass]
 public class KeyGeneratorTest
