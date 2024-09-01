@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using TrustedVoteLibrary;
+using TrustedVoteLibrary.Utils;
 
 namespace TestProject1
 {
@@ -12,27 +13,32 @@ namespace TestProject1
         public void TestGenerateVoterCertificateWithExtensions()
         {
             // Arrange
-            string stateAbbreviation = "CA";
-            string votingDistrict = "San Francisco";
+
             string guid = Guid.NewGuid().ToString();
 
 
             using (RSA rsa = RSA.Create())
             {
+                var voteArea = new VotingArea()
+                {
+                    Country = "US",
+                    State = "AR",
+                    County = "Benton",
+                    City = "Rogers",
+                    Ward = "1",
+                    Precinct = "2",
+                    District = "42",
+                    Id = guid,
+                    Email = "clerk@anytown.St.US"
+                };
                 // Act
                 var cert = CertificateManager.GenerateVoterCertificateWithExtensions(
-                    stateAbbreviation, votingDistrict, guid, rsa);
+                    voteArea, rsa);
 
                 // Assert
                 Assert.IsNotNull(cert, "Certificate should not be null");
-                Assert.AreEqual($"CN=Voter, C={stateAbbreviation}, L={votingDistrict}", cert.Subject, "Certificate subject should match");
-                Assert.IsTrue(cert.Extensions.Count > 0, "Certificate should have extensions");
-                Assert.AreEqual("CN=Voter, C=CA, L=San Francisco",cert.Subject, "Certificate subject should match");
-                // Verify the voting district is correct
-                var votingDistrictExtension = cert.Extensions["1.2.3.4.5.6.7.8.1"];
-                Assert.IsNotNull(votingDistrictExtension, "Voting district extension should not be null");
-                Assert.AreEqual(votingDistrict, System.Text.Encoding.ASCII.GetString(votingDistrictExtension.RawData), "Voting district should match");
-            }
+                Assert.AreEqual(cert.GetSubjectValueByName("CN"), guid, "Common Name above guid");
+                Assert.AreEqual(cert.GetSubjectValueByName("E"), voteArea.Email, "Email should match"); }
         }
     }
 }

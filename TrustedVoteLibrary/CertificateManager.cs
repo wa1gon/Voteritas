@@ -1,4 +1,5 @@
 namespace TrustedVoteLibrary;
+
 public class CertificateManager
 {
     /*
@@ -11,19 +12,28 @@ public class CertificateManager
         STREET (Street Address)
         DC (Domain Component)
         UID (User ID)
-        EMAIL (Email Address)
+        E (Email Address)
      */
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="votingArea"></param>
+    /// <param name="rsa"></param>
+    /// <returns></returns>
     public static X509Certificate2 GenerateVoterCertificateWithExtensions(
-        string state, string votingDistrict, string balletNum, RSA rsa)
+        VotingArea votingArea, RSA rsa)
     {
-        var request = new CertificateRequest($"CN={balletNum}, C={state}, L={votingDistrict}",
+        var subject = votingArea.GenerateSubject();
+
+
+        var request = new CertificateRequest($"{subject}",
             rsa, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
 
         // Add the voting district as an extension
-        var votingDistrictExtension = new X509Extension(
-            new Oid("1.2.3.4.5.6.7.8.1", "Voting District"), System.Text.Encoding.ASCII.GetBytes(votingDistrict),
-            false);
-        request.CertificateExtensions.Add(votingDistrictExtension);
+        // var votingDistrictExtension = new X509Extension(
+        //     new Oid("1.2.3.4.5.6.7.8.1", "Voting District"), System.Text.Encoding.ASCII.GetBytes(votingDistrict),
+        //     false);
+        // request.CertificateExtensions.Add(votingDistrictExtension);
 
         // Create the certificate
         var certificate = request.CreateSelfSigned(DateTimeOffset.Now, DateTimeOffset.Now.AddYears(1));

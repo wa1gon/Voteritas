@@ -7,7 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81313d99-1273-4820-bca0-1b0b3c676d0c" name="Changes" comment="inital code">
+    <list default="true" id="81313d99-1273-4820-bca0-1b0b3c676d0c" name="Changes" comment="WIP">
+      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/VotingArea.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrustVotingCLI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrustVotingCLI/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TrustedVoteLibrary/CertificateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVoteLibrary/CertificateManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs" afterDir="false" />
@@ -33,6 +34,8 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df3a5d166359f3be77c6a4c18d8b451173aecfe3a6673cbe1545fdc424a40/Assert.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/github/TrustedVoting/TrustVotingCLI/TrustedVoteLibrary/CertificateManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TrustedVoteLibraryTest/KeyGeneratorTest.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -54,6 +57,7 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;XThreadsFramesViewSplitterKey&quot;: &quot;0.40050063&quot;,
     &quot;c189e7d8-acde-4167-9898-41fb9a7ae37a.executor&quot;: &quot;Debug&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
@@ -100,7 +104,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1725060017090</updated>
-      <workItem from="1725060018253" duration="9496000" />
+      <workItem from="1725060018253" duration="19007000" />
     </task>
     <task id="LOCAL-00001" summary="inital code">
       <option name="closed" value="true" />
@@ -110,7 +114,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725060840347</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="WIP">
+      <option name="closed" value="true" />
+      <created>1725139470913</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1725139470913</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,38 +145,83 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="inital code" />
-    <option name="LAST_COMMIT_MESSAGE" value="inital code" />
+    <MESSAGE value="WIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/TrustedVoteLibrary/PKIManager.cs</url>
-          <line>10</line>
+          <line>9</line>
           <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustedVoteLibrary\PKIManager.cs" containingFunctionPresentation="Method 'GenerateKeys'">
             <startOffsets>
-              <option value="415" />
+              <option value="349" />
             </startOffsets>
             <endOffsets>
-              <option value="451" />
+              <option value="385" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs</url>
-          <line>33</line>
+          <line>47</line>
           <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustedVoteLibraryTest\TestGenerateVoterCerificateWithExtensions.cs" containingFunctionPresentation="Method 'TestGenerateVoterCertificateWithExtensions'">
             <startOffsets>
-              <option value="1515" />
+              <option value="2019" />
             </startOffsets>
             <endOffsets>
-              <option value="1650" />
+              <option value="2154" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs</url>
+          <line>34</line>
+          <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustedVoteLibraryTest\TestGenerateVoterCerificateWithExtensions.cs" containingFunctionPresentation="Method 'TestGenerateVoterCertificateWithExtensions'">
+            <startOffsets>
+              <option value="975" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1080" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs</url>
+          <line>39</line>
+          <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustedVoteLibraryTest\TestGenerateVoterCerificateWithExtensions.cs" containingFunctionPresentation="Method 'TestGenerateVoterCertificateWithExtensions'">
+            <startOffsets>
+              <option value="1198" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1280" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TrustedVoteLibrary/CertificateManager.cs</url>
+          <line>28</line>
+          <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustedVoteLibrary\CertificateManager.cs" containingFunctionPresentation="Method 'GenerateVoterCertificateWithExtensions'">
+            <startOffsets>
+              <option value="754" />
+            </startOffsets>
+            <endOffsets>
+              <option value="875" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#System.Security.Cryptography.X509Certificates.X509Certificate2" memberName="PrivateKey" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
