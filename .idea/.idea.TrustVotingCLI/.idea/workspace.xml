@@ -7,20 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81313d99-1273-4820-bca0-1b0b3c676d0c" name="Changes" comment="WIP">
-      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/CACertInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/CertificateAuthority.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/CertificateGenerator.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/JwsExample.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrustedVotingLibraryTest/CATest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrustedVotingLibraryTest/ZGlobalUsing.cs" afterDir="false" />
+    <list default="true" id="81313d99-1273-4820-bca0-1b0b3c676d0c" name="Changes" comment="wip">
+      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/BallotModel/Ballot.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/BallotModel/BallotItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/BallotModel/MultVoteItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/BallotModel/SingleVoteItem.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrustVotingCLI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrustVotingCLI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustVotingCLI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustVotingCLI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustedVoteLibraryTest/KeyGeneratorTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVotingLibraryTest/KeyGeneratorTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVotingLibraryTest/TestGenerateVoterCerificateWithExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustedVoteLibraryTest/TrustedVoteLibraryTest.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVotingLibraryTest/TrustedVotingLibraryTest.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustedVotingSystem.sln" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVotingSystem.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustedVotingSystem.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVotingSystem.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +126,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725139470913</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="wip">
+      <option name="closed" value="true" />
+      <created>1725306061440</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1725306061440</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,7 +158,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="inital code" />
     <MESSAGE value="WIP" />
-    <option name="LAST_COMMIT_MESSAGE" value="WIP" />
+    <MESSAGE value="wip" />
+    <option name="LAST_COMMIT_MESSAGE" value="wip" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
