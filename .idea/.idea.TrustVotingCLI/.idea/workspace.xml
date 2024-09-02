@@ -8,10 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81313d99-1273-4820-bca0-1b0b3c676d0c" name="Changes" comment="WIP">
-      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/VotingArea.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/CACertInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/CertificateAuthority.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/CertificateGenerator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/JwsExample.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrustedVotingLibraryTest/CATest.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrustedVotingLibraryTest/ZGlobalUsing.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrustVotingCLI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrustVotingCLI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustedVoteLibrary/CertificateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVoteLibrary/CertificateManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrustVotingCLI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustVotingCLI/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrustedVoteLibraryTest/KeyGeneratorTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVotingLibraryTest/KeyGeneratorTest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVotingLibraryTest/TestGenerateVoterCerificateWithExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrustedVoteLibraryTest/TrustedVoteLibraryTest.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVotingLibraryTest/TrustedVotingLibraryTest.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrustedVotingSystem.sln" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVotingSystem.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrustedVotingSystem.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVotingSystem.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +45,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/df3a5d166359f3be77c6a4c18d8b451173aecfe3a6673cbe1545fdc424a40/Assert.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/github/TrustedVoting/TrustVotingCLI/TrustedVoteLibrary/CertificateManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TrustedVoteLibraryTest/KeyGeneratorTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TrustedVotingLibraryTest/CATest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TrustedVotingLibraryTest/KeyGeneratorTest.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TrustedVotingLibraryTest/TestGenerateVoterCerificateWithExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TrustedVotingLibraryTest/ZGlobalUsing.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -165,56 +177,56 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs</url>
-          <line>47</line>
-          <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustedVoteLibraryTest\TestGenerateVoterCerificateWithExtensions.cs" containingFunctionPresentation="Method 'TestGenerateVoterCertificateWithExtensions'">
-            <startOffsets>
-              <option value="2019" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2154" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs</url>
+          <url>file://$PROJECT_DIR$/TrustedVotingLibraryTest/TestGenerateVoterCerificateWithExtensions.cs</url>
           <line>34</line>
-          <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustedVoteLibraryTest\TestGenerateVoterCerificateWithExtensions.cs" containingFunctionPresentation="Method 'TestGenerateVoterCertificateWithExtensions'">
+          <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustedVotingLibraryTest\TestGenerateVoterCerificateWithExtensions.cs" containingFunctionPresentation="Method 'TestGenerateVoterCertificateWithExtensions'">
             <startOffsets>
-              <option value="975" />
+              <option value="961" />
             </startOffsets>
             <endOffsets>
-              <option value="1080" />
+              <option value="1066" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TrustedVoteLibraryTest/TestGenerateVoterCerificateWithExtensions.cs</url>
-          <line>39</line>
-          <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustedVoteLibraryTest\TestGenerateVoterCerificateWithExtensions.cs" containingFunctionPresentation="Method 'TestGenerateVoterCertificateWithExtensions'">
+          <url>file://$PROJECT_DIR$/TrustedVotingLibraryTest/TestGenerateVoterCerificateWithExtensions.cs</url>
+          <line>38</line>
+          <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustedVotingLibraryTest\TestGenerateVoterCerificateWithExtensions.cs" containingFunctionPresentation="Method 'TestGenerateVoterCertificateWithExtensions'">
             <startOffsets>
-              <option value="1198" />
+              <option value="-1" />
             </startOffsets>
             <endOffsets>
-              <option value="1280" />
+              <option value="-1" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TrustedVoteLibrary/CertificateManager.cs</url>
-          <line>28</line>
-          <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustedVoteLibrary\CertificateManager.cs" containingFunctionPresentation="Method 'GenerateVoterCertificateWithExtensions'">
+          <url>file://$PROJECT_DIR$/TrustedVotingLibraryTest/CATest.cs</url>
+          <line>30</line>
+          <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustedVotingLibraryTest\CATest.cs" containingFunctionPresentation="Method 'TestGenerateVoterCertificateWithExtensions'">
             <startOffsets>
-              <option value="754" />
+              <option value="737" />
             </startOffsets>
             <endOffsets>
-              <option value="875" />
+              <option value="796" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="10" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TrustedVoteLibrary/CertificateAuthority.cs</url>
+          <line>28</line>
+          <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustedVoteLibrary\CertificateAuthority.cs" containingFunctionPresentation="Method 'GenerateCACertificate'">
+            <startOffsets>
+              <option value="1298" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1312" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

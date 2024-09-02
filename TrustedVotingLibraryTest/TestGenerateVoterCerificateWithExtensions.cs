@@ -1,16 +1,12 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
-using TrustedVoteLibrary;
-using TrustedVoteLibrary.Utils;
 
-namespace TestProject1
-{
+
+namespace TrustedVotingLibraryTest;
+
     [TestClass]
     public class CertificateManagerTest
     {
         [TestMethod]
-        public void TestGenerateVoterCertificateWithExtensions()
+        public void TestGenerateVoterCertificate()
         {
             // Arrange
 
@@ -41,4 +37,3 @@ namespace TestProject1
                 Assert.AreEqual(cert.GetSubjectValueByName("E"), voteArea.Email, "Email should match"); }
         }
     }
-}

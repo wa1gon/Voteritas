@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrustVotingCLI", "TrustVoti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrustedVoteLibrary", "TrustedVoteLibrary\TrustedVoteLibrary.csproj", "{73FAAF23-E701-43EC-9BBE-FB3A2197A027}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrustedVoteLibraryTest", "TrustedVoteLibraryTest\TrustedVoteLibraryTest.csproj", "{ADAA4C71-8B3D-4031-8194-FF84CBDE3FA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrustedVotingLibraryTest", "TrustedVotingLibraryTest\TrustedVotingLibraryTest.csproj", "{ADAA4C71-8B3D-4031-8194-FF84CBDE3FA2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

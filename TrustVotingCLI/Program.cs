@@ -1,37 +1,25 @@
-﻿using System;
+﻿using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using TrustedVoteLibrary;
 
 class Program
 {
-    static void Main()
+    static void Main(string[] args)
     {
-        // Voter's Information
-        string stateAbbreviation = "AR";  // Example: Arkansas
-        string votingDistrict = "District 42";
-        string guid = Guid.NewGuid().ToString();
-        string issuerId = "Issuer123";
+        // Load the CA certificate and private key
+        X509Certificate2 caCert = new X509Certificate2("MyRootCA.pfx", "YourSecurePassword");
+        RSA caPrivateKey = caCert.GetRSAPrivateKey();
 
-        // Generate RSA Key Pair
-        var (rsa, publicKey, privateKey) = PKIManager.GenerateKeys();
+        // Subject name for the new certificate
+        string subjectName = "CN=MySignedCert, O=MyOrganization, C=US";
 
-        // Generate the Voter Certificate with the RSA key and custom extensions
-        // var voterCertificate = CertificateManager.GenerateVoterCertificateWithExtensions(
-        //     stateAbbreviation, votingDistrict, guid, issuerId, rsa);
+        // Create the certificate signed by the CA
+        X509Certificate2 signedCert = CertificateGenerator.CreateCertificate(subjectName, caCert, caPrivateKey);
 
-        // Display Certificate Information
-        // Console.WriteLine("Voter Certificate:");
-        // Console.WriteLine($"Subject: {voterCertificate.Subject}");
-        // Console.WriteLine($"Issuer: {voterCertificate.Issuer}");
-        // Console.WriteLine($"Serial Number: {voterCertificate.SerialNumber}");
-        // Console.WriteLine($"Thumbprint: {voterCertificate.Thumbprint}");
-        // Console.WriteLine($"Public Key: {publicKey}");
-        //
-        // // Optionally, save the certificate to a file
-        // byte[] certData = voterCertificate.Export(X509ContentType.Pfx);
-        // System.IO.File.WriteAllBytes("voter_cert_with_issuer.pfx", certData);
+        // Save the signed certificate with the private key to a PFX file
+        byte[] pfxData = signedCert.Export(X509ContentType.Pfx, "CertPassword");
+        System.IO.File.WriteAllBytes("MySignedCert.pfx", pfxData);
 
-        // Dispose of the RSA object
-        rsa.Dispose();
+        Console.WriteLine("Certificate created and saved successfully.");
     }
 }

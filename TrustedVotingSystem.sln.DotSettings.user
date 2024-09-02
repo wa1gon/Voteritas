@@ -1,7 +1,4 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c189e7d8_002Dacde_002D4167_002D9898_002D41fb9a7ae37a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;TestProject1&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;MSTest::ADAA4C71-8B3D-4031-8194-FF84CBDE3FA2::net8.0::TestProject1.KeyGeneratorTest.TestGenerateKeys&lt;/TestId&gt;&#xD;
-    &lt;TestId&gt;MSTest::ADAA4C71-8B3D-4031-8194-FF84CBDE3FA2::net8.0::TestProject1.CertificateManagerTest.TestGenerateVoterCertificateWithExtensions&lt;/TestId&gt;&#xD;
-  &lt;/TestAncestor&gt;&#xD;
+  &lt;ProjectFile&gt;ADAA4C71-8B3D-4031-8194-FF84CBDE3FA2/f:CATest.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
