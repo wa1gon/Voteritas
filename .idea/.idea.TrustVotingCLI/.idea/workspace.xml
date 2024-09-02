@@ -7,15 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81313d99-1273-4820-bca0-1b0b3c676d0c" name="Changes" comment="Clean up">
-      <change afterPath="$PROJECT_DIR$/TrustVotingCLI/ZGlobalUsing.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrustVotingCLI/appsettings.json" afterDir="false" />
+    <list default="true" id="81313d99-1273-4820-bca0-1b0b3c676d0c" name="Changes" comment="WIP">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TrustVotingCLI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrustVotingCLI/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TrustVotingCLI/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustVotingCLI/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustVotingCLI/TrustVotingCLI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TrustVotingCLI/TrustVotingCLI.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustedVoteLibrary/CertificateGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVoteLibrary/CertificateGenerator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustedVoteLibrary/VotingArea.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVoteLibrary/VotingArea.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrustedVotingLibraryTest/ZGlobalUsing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVotingLibraryTest/ZGlobalUsing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrustVotingCLI/ZGlobalUsing.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustVotingCLI/ZGlobalUsing.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrustVotingCLI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/TrustVotingCLI/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrustedVoteLibrary/CACertInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVoteLibrary/CACertInfo.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,9 +92,9 @@
 }</component>
   <component name="RunManager">
     <configuration name="TrustVotingCLI" type="DotNetProject" factoryName=".NET Project">
-      <option name="EXE_PATH" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/TrustVotingCLI/bin/Debug/net8.0/TrustVotingCLI.exe" />
+      <option name="PROGRAM_PARAMETERS" value="createcacert" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TrustVotingCLI/bin/Debug/net8.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
@@ -107,7 +104,7 @@
       <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
       <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
       <option name="PROJECT_KIND" value="DotNetCore" />
-      <option name="PROJECT_TFM" value="" />
+      <option name="PROJECT_TFM" value="net8.0" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -163,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725307998842</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="WIP">
+      <option name="closed" value="true" />
+      <created>1725312421882</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1725312421882</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,11 +191,11 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="inital code" />
-    <MESSAGE value="WIP" />
     <MESSAGE value="wip" />
     <MESSAGE value="added ballots" />
     <MESSAGE value="Clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean up" />
+    <MESSAGE value="WIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="WIP" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -262,29 +267,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/TrustVotingCLI/Program.cs</url>
-          <line>17</line>
+          <line>43</line>
           <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustVotingCLI\Program.cs" containingFunctionPresentation="Method 'Main'">
             <startOffsets>
-              <option value="616" />
+              <option value="1629" />
             </startOffsets>
             <endOffsets>
-              <option value="701" />
+              <option value="1655" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TrustVotingCLI/Program.cs</url>
-          <line>8</line>
-          <properties documentPath="C:\github\TrustedVoting\TrustVotingCLI\TrustVotingCLI\Program.cs" containingFunctionPresentation="Method 'Main'">
-            <startOffsets>
-              <option value="182" />
-            </startOffsets>
-            <endOffsets>
-              <option value="385" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="14" />
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

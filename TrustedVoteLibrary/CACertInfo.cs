@@ -2,15 +2,26 @@ namespace TrustedVoteLibrary;
 
 public class CACertInfo
 {
+    public string CACertFileName { get; set; } // CA certificate file name
+    public string CACertPath { get; set; } // CA certificate path
+    public string? City { get; set; }
+    public string CommonName { get; set; } // common name
     public string Country { get; set; }
-    public string State { get; set; }
     public string County { get; set; }
+    public string Email { get; set; }  // issuers email
+    public string FriendlyName { get; set; } // friendly name
+    public string Id { get; set; } // unique identifier
+    public string Issuer { get; set; } // issuer name
     public string Organization { get; set; }
     public string OrganizationalUnit { get; set; }
-    public string? City { get; set; }
-    public string Id { get; set; } // unique identifier
-    public string Email { get; set; }  // issuers email
-    public string CommonName { get; set; } // common name
+    public string Password { get; set; } // password
+    public string State { get; set; }
+    public string? ValidFrom { get; set; } // certificate valid from
+    public string? ValidTo { get; set; } // certificate valid to
+    // public CngKeyUsages KeyUsage { get; set; } // key usage
+
+
+
     public string GenerateSubject()
     {
         var subjectBuilder = new StringBuilder();
