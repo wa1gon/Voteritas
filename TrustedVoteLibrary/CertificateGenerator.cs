@@ -4,7 +4,7 @@ public class CertificateGenerator
     public static X509Certificate2 CreateCertificate(
         string subjectName, 
         X509Certificate2 caCert, 
-        RSA caPrivateKey, 
+        RSA? caPrivateKey, 
         int yearsValid = 1)
     {
         // Generate RSA key pair for the new certificate
