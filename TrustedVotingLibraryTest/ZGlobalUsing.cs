@@ -5,3 +5,5 @@ global using TrustedVoteLibrary.Utils;
 global using System.Security.Cryptography.X509Certificates;
 global using System.Text;
 global using System.Collections.Generic;
+global using TrustedVoteLibrary.BallotModel;
+global using Microsoft.VisualStudio.TestTools.UnitTesting;

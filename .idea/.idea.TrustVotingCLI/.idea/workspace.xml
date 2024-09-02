@@ -7,12 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81313d99-1273-4820-bca0-1b0b3c676d0c" name="Changes" comment="wip">
-      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/BallotModel/Ballot.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/BallotModel/BallotItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/BallotModel/MultVoteItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrustedVoteLibrary/BallotModel/SingleVoteItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TrustVotingCLI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TrustVotingCLI/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="81313d99-1273-4820-bca0-1b0b3c676d0c" name="Changes" comment="added ballots">
+      <change beforePath="$PROJECT_DIR$/TrustedVotingLibraryTest/BallotTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TrustedVotingLibraryTest/BallotTest.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725306061440</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added ballots">
+      <option name="closed" value="true" />
+      <created>1725307179967</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1725307179967</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,7 +163,8 @@
     <MESSAGE value="inital code" />
     <MESSAGE value="WIP" />
     <MESSAGE value="wip" />
-    <option name="LAST_COMMIT_MESSAGE" value="wip" />
+    <MESSAGE value="added ballots" />
+    <option name="LAST_COMMIT_MESSAGE" value="added ballots" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

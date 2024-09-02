@@ -2,11 +2,6 @@
 
 namespace TrustedVotingLibraryTest;
 
-using TrustedVoteLibrary.BallotModel;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-
-
     [TestClass]
     public class BallotTests
     {
@@ -15,7 +10,7 @@ using System.Collections.Generic;
         {
             // Arrange
             var ballot = new Ballot("Test Ballot");
-            var singleVoteItem = new SingleVoteItem("President", new List<string> { "Candidate A", "Candidate B" });
+            var singleVoteItem = new SingleVoteItem("President", ["Candidate A", "Candidate B"]);
 
             // Act
             ballot.AddItem(singleVoteItem);
@@ -29,10 +24,10 @@ using System.Collections.Generic;
         public void SingleVoteItem_ShouldRecordVote()
         {
             // Arrange
-            var singleVoteItem = new SingleVoteItem("President", new List<string> { "Candidate A", "Candidate B" });
+            var singleVoteItem = new SingleVoteItem("President", ["Candidate A", "Candidate B"]);
 
             // Act
-            singleVoteItem.RecordVote(new List<string> { "Candidate A" });
+            singleVoteItem.RecordVote(["Candidate A"]);
 
             // Assert
             Assert.AreEqual(1, singleVoteItem.Options["Candidate A"]);
@@ -43,10 +38,10 @@ using System.Collections.Generic;
         public void SingleVoteItem_ShouldNotAllowMultipleVotes()
         {
             // Arrange
-            var singleVoteItem = new SingleVoteItem("President", new List<string> { "Candidate A", "Candidate B" });
+            var singleVoteItem = new SingleVoteItem("President", ["Candidate A", "Candidate B"]);
 
             // Act
-            singleVoteItem.RecordVote(new List<string> { "Candidate A", "Candidate B" });
+            singleVoteItem.RecordVote(["Candidate A", "Candidate B"]);
 
             // Assert
             Assert.AreEqual(0, singleVoteItem.Options["Candidate A"]);
@@ -57,10 +52,10 @@ using System.Collections.Generic;
         public void MultiVoteItem_ShouldAllowMultipleVotesUpToLimit()
         {
             // Arrange
-            var multiVoteItem = new MultiVoteItem("City Council", new List<string> { "Candidate X", "Candidate Y", "Candidate Z" }, 2);
+            var multiVoteItem = new MultiVoteItem("City Council", ["Candidate X", "Candidate Y", "Candidate Z"], 2);
 
             // Act
-            multiVoteItem.RecordVote(new List<string> { "Candidate X", "Candidate Y" });
+            multiVoteItem.RecordVote(["Candidate X", "Candidate Y"]);
 
             // Assert
             Assert.AreEqual(1, multiVoteItem.Options["Candidate X"]);
@@ -72,10 +67,10 @@ using System.Collections.Generic;
         public void MultiVoteItem_ShouldNotAllowMoreThanLimit()
         {
             // Arrange
-            var multiVoteItem = new MultiVoteItem("City Council", new List<string> { "Candidate X", "Candidate Y", "Candidate Z" }, 2);
+            var multiVoteItem = new MultiVoteItem("City Council", ["Candidate X", "Candidate Y", "Candidate Z"], 2);
 
             // Act
-            multiVoteItem.RecordVote(new List<string> { "Candidate X", "Candidate Y", "Candidate Z" });
+            multiVoteItem.RecordVote(["Candidate X", "Candidate Y", "Candidate Z"]);
 
             // Assert
             Assert.AreEqual(0, multiVoteItem.Options["Candidate X"]);
@@ -88,11 +83,11 @@ using System.Collections.Generic;
         {
             // Arrange
             var ballot = new Ballot("Test Ballot");
-            var singleVoteItem = new SingleVoteItem("President", new List<string> { "Candidate A", "Candidate B" });
+            var singleVoteItem = new SingleVoteItem("President", ["Candidate A", "Candidate B"]);
             ballot.AddItem(singleVoteItem);
 
             // Act
-            ballot.Vote("President", new List<string> { "Candidate A" });
+            ballot.Vote("President", ["Candidate A"]);
 
             // Assert
             Assert.AreEqual(1, singleVoteItem.Options["Candidate A"]);
@@ -103,11 +98,11 @@ using System.Collections.Generic;
         {
             // Arrange
             var ballot = new Ballot("Test Ballot");
-            var multiVoteItem = new MultiVoteItem("City Council", new List<string> { "Candidate X", "Candidate Y", "Candidate Z" }, 2);
+            var multiVoteItem = new MultiVoteItem("City Council", ["Candidate X", "Candidate Y", "Candidate Z"], 2);
             ballot.AddItem(multiVoteItem);
 
             // Act
-            ballot.Vote("City Council", new List<string> { "Candidate X", "Candidate Z" });
+            ballot.Vote("City Council", ["Candidate X", "Candidate Z"]);
 
             // Assert
             Assert.AreEqual(1, multiVoteItem.Options["Candidate X"]);
