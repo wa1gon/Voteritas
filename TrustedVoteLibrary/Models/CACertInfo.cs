@@ -13,7 +13,7 @@ public class CACertInfo
     public string Id { get; set; } // unique identifier
     public string Issuer { get; set; } // issuer name
     public string Organization { get; set; }
-    public string OrganizationalUnit { get; set; }
+    public string OrganizationalUnit { get; set; }  // normally ward
     public string Password { get; set; } // password
     public string State { get; set; }
     public string? ValidFrom { get; set; } // certificate valid from
@@ -26,13 +26,17 @@ public class CACertInfo
     {
         var subjectBuilder = new StringBuilder();
 
-        if (!string.IsNullOrEmpty(Country))
+        if (OrganizationalUnit.IsNullOrEmpty()) throw new NullReferenceException("OrganizationalUnit is required");
+        if (Country.IsNullOrEmpty()) throw new NullReferenceException("Country is required");
+        if (State.IsNullOrEmpty()) throw new NullReferenceException("State is required");
+        if (County.IsNullOrEmpty()) throw new NullReferenceException("County is required");
+        if (Organization.IsNullOrEmpty()) throw new NullReferenceException("Organization AKA Party is required");
+        if (CommonName.IsNullOrEmpty()) throw new NullReferenceException("Name is required");
+        if (Id.IsNullOrEmpty()) throw new NullReferenceException("Id is required");
+        
             subjectBuilder.Append($"C={Country}, ");
-        if (!string.IsNullOrEmpty(State))
             subjectBuilder.Append($"ST={State}, ");
-        if (!string.IsNullOrEmpty(County))
             subjectBuilder.Append($"L={County}, ");
-        if (!string.IsNullOrEmpty(Organization))
             subjectBuilder.Append($"O={Organization}, ");
         if (!string.IsNullOrEmpty(OrganizationalUnit))
             subjectBuilder.Append($"OU={OrganizationalUnit}, ");

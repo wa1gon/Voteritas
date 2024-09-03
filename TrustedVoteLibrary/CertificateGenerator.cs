@@ -1,10 +1,7 @@
 namespace TrustedVoteLibrary;
 public class CertificateGenerator
 {
-    public static X509Certificate2 CreateCertificate(
-        string subjectName, 
-        X509Certificate2 caCert, 
-        RSA? caPrivateKey, 
+    public static X509Certificate2 CreateCertificate(BallotCertInfo ballot, X509Certificate2 caCert, RSA? caPrivateKey, 
         int yearsValid = 1)
     {
         // Generate RSA key pair for the new certificate
@@ -12,7 +9,7 @@ public class CertificateGenerator
         {
             // Create the certificate request
             var req = new CertificateRequest(
-                new X500DistinguishedName(subjectName), 
+                new X500DistinguishedName(ballot.GenerateSubject()), 
                 rsa, 
                 HashAlgorithmName.SHA256, 
                 RSASignaturePadding.Pkcs1);

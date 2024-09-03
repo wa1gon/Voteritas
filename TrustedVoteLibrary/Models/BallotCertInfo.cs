@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TrustedVoteLibrary;
 
-public class VotingArea
+public class BallotCertInfo
 {
     public const string Unincorporated = "Unincorporated";
     public string Country { get; set; } = string.Empty;

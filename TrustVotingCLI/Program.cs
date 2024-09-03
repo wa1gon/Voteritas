@@ -61,12 +61,7 @@ class Program
         var caCert = CertificateAuthority.GenerateCACertificate(caCertInfo);
         string fullName = System.IO.Path.Combine(caCertInfo.CACertPath, caCertInfo.CACertFileName);
         CertificateAuthority.SaveCertificateWithPrivateKey(caCert, fullName, caCertInfo.Password);
-        // Implement CA certificate creation logic
-        // Example:
-        // X509Certificate2 caCert = CertificateGenerator.CreateCACertificate("CN=MyRootCA, O=MyOrganization, C=US");
-        // byte[] pfxData = caCert.Export(X509ContentType.Pfx, password);
-        // System.IO.File.WriteAllBytes(System.IO.Path.Combine(path, fileName), pfxData);
-        Console.WriteLine("CA Certificate created and saved successfully.");
+
     }
 
     static void CreateCert(string certPath, string certFileName, string caCertPath, string caCertFileName, string caCertPassword)
@@ -81,11 +76,11 @@ class Program
         // Create the certificate signed by the CA
         if (caPrivateKey != null)
         {
-            X509Certificate2 signedCert = CertificateGenerator.CreateCertificate(subjectName, caCert, caPrivateKey);
+            // X509Certificate2 signedCert = CertificateGenerator.CreateCertificate(subjectName, caCert, caPrivateKey);
 
             // Save the signed certificate with the private key to a PFX file
-            byte[] pfxData = signedCert.Export(X509ContentType.Pfx, "CertPassword");
-            System.IO.File.WriteAllBytes(System.IO.Path.Combine(certPath, certFileName), pfxData);
+            // byte[] pfxData = signedCert.Export(X509ContentType.Pfx, "CertPassword");
+            // System.IO.File.WriteAllBytes(System.IO.Path.Combine(certPath, certFileName), pfxData);
 
             Console.WriteLine("Certificate created and saved successfully.");
         }

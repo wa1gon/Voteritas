@@ -17,13 +17,13 @@ public class CertificateManager
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="votingArea"></param>
+    /// <param name="ballotCertInfo"></param>
     /// <param name="rsa"></param>
     /// <returns></returns>
     public static X509Certificate2 GenerateVoterCertificateWithExtensions(
-        VotingArea votingArea, RSA rsa)
+        BallotCertInfo ballotCertInfo, RSA rsa)
     {
-        var subject = votingArea.GenerateSubject();
+        var subject = ballotCertInfo.GenerateSubject();
 
 
         var request = new CertificateRequest($"{subject}",

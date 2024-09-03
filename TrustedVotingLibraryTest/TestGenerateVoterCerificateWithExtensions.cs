@@ -15,7 +15,7 @@ namespace TrustedVotingLibraryTest;
 
             using (RSA rsa = RSA.Create())
             {
-                var voteArea = new VotingArea()
+                var voteArea = new BallotCertInfo()
                 {
                     Country = "US",
                     State = "AR",
