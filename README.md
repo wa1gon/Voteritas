@@ -85,6 +85,7 @@ using C# and follows best practices for cryptography and PKI.
 - **Database System**: The database system used for storing voters, ballots, and
   records can be SQL Server, MySQL, or any database supporting encryption and
   secure storage.
+- Messaging system.  Currently NATS is being used because of the lightweight nature and security
 - Voter registration code that has their private key encrypted on it.
 
 ## Setup and Usage
