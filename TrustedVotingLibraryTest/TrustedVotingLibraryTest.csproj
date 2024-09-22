@@ -11,14 +11,27 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="coverlet.collector" Version="6.0.0"/>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0"/>
-        <PackageReference Include="MSTest.TestAdapter" Version="3.1.1"/>
-        <PackageReference Include="MSTest.TestFramework" Version="3.1.1"/>
+        <PackageReference Include="AspNetCore.HealthChecks.Nats" Version="8.0.1" />
+        <PackageReference Include="coverlet.collector" Version="6.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.8" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+        <PackageReference Include="MSTest.TestAdapter" Version="3.1.1" />
+        <PackageReference Include="MSTest.TestFramework" Version="3.1.1" />
+        <PackageReference Include="NATS.Client" Version="1.1.6" />
+        <PackageReference Include="NATS.Client.Core" Version="2.4.0" />
+        <PackageReference Include="NATS.Client.Hosting" Version="2.4.0" />
+        <PackageReference Include="NATS.Client.JetStream" Version="2.4.0" />
+        <PackageReference Include="NATS.Client.KeyValueStore" Version="2.4.0" />
+        <PackageReference Include="NATS.Client.ObjectStore" Version="2.4.0" />
+        <PackageReference Include="NATS.Client.Serializers.Json" Version="2.4.0" />
+        <PackageReference Include="NATS.Client.Services" Version="2.4.0" />
+        <PackageReference Include="NATS.JetStreamExampleUtils" Version="1.1.6" />
+        <PackageReference Include="NATS.Net" Version="2.4.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting"/>
+        <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
     </ItemGroup>
 
     <ItemGroup>

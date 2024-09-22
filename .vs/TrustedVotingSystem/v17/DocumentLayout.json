@@ -1,0 +1,63 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\github\\TrustedVoting\\TrustVotingCLI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A0CC5EEF-6C21-480C-A8B2-F3F989EF0082}|TrustedVotingNatsLibrary\\TrustedVotingNatsLibrary.csproj|c:\\github\\trustedvoting\\trustvotingcli\\trustedvotingnatslibrary\\natsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0CC5EEF-6C21-480C-A8B2-F3F989EF0082}|TrustedVotingNatsLibrary\\TrustedVotingNatsLibrary.csproj|solutionrelative:trustedvotingnatslibrary\\natsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 250,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{57d563b6-44a5-47df-85be-f4199ad6b651}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "NatsService.cs",
+              "DocumentMoniker": "C:\\github\\TrustedVoting\\TrustVotingCLI\\TrustedVotingNatsLibrary\\NatsService.cs",
+              "RelativeDocumentMoniker": "TrustedVotingNatsLibrary\\NatsService.cs",
+              "ToolTip": "C:\\github\\TrustedVoting\\TrustVotingCLI\\TrustedVotingNatsLibrary\\NatsService.cs",
+              "RelativeToolTip": "TrustedVotingNatsLibrary\\NatsService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFAAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-22T22:37:29.101Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 128,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
