@@ -6,11 +6,16 @@ namespace TrustedVotingNatsLibrary;
 public class NatsService : IDisposable
 {
 
+    public NatsService()
+    {
+
+    }
     public async Task Sub()
     {
         await using var nats = new NatsConnection();
         var cts = new CancellationTokenSource();
 
+        
         var subscription = Task.Run(async () =>
         {
             await foreach (var msg in nats.SubscribeAsync<string>(subject: "foo").WithCancellation(cts.Token))
