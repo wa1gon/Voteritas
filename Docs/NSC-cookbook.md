@@ -21,4 +21,16 @@
 1. nats context save Arkansas_sys --nsc "nsc://Arkansas/SYS/sys"
 2. nats context save Arkansas_Voter_1 --nsc "nsc://Arkansas/Benton/Voter_1"
 
+### Creating Creds file
+1. nsc generate creds -n Voter_1 > Voter_1.creds
+
+### Importing and Exporting service or stream
+1. nsc add export --account Benton --name [subject] --server
+2. nsc add import -i // interactive
+3. nsc push -A
+
+### Edit User prevs
+1. nsc edit user -n [user_name] -account Benton --allow-pub [subject] --allow-sub "_INBOX.>"
+2. 
+
    
