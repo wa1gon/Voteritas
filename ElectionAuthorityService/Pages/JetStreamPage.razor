@@ -1,0 +1,12 @@
+@page "/jetstream"
+<h3>JetStream Example</h3>
+
+<input @bind="message" placeholder="Enter message" />
+<button @onclick="PublishMessage">Publish</button>
+
+<ul>
+    @foreach (var msg in messages)
+    {
+    <li>@msg</li>
+    }
+</ul>

@@ -4,3 +4,9 @@
     build:
       context: .
       dockerfile: OperatorService/Dockerfile
+
+  sandboxnats:
+    image: sandboxnats
+    build:
+      context: .
+      dockerfile: SandboxNATS/Dockerfile

@@ -12,3 +12,27 @@ riderModule.iml
 .vs/ProjectEvaluation/trustedvotingsystem.metadata.v9.bin
 
 .vs/ProjectEvaluation/trustedvotingsystem.projects.v9.bin
+
+*.db
+
+.vs/TrustedVotingSystem/CopilotIndices/0.2.1653.9816/CodeChunks.db-shm
+
+*.db-wal
+
+*.vsidx
+
+.vs/TrustedVotingSystem/v17/.suo
+
+*.v2
+
+*.db-shm
+
+.idea/.idea.TrustedVotingSystem/.idea/
+
+.vs/TrustedVotingSystem/v17/
+
+.vs/ProjectEvaluation/
+
+.vs/TrustedVotingSystem/FileContentIndex/
+
+.vs/TrustedVotingSystem/DesignTimeBuild/

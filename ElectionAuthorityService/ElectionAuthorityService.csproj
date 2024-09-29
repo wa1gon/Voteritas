@@ -24,4 +24,7 @@
     <PackageReference Include="NATS.JetStreamExampleUtils" Version="1.1.6" />
     <PackageReference Include="NATS.Net" Version="2.4.0" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TrustedVotingNatsLibrary\TrustedVotingNatsLibrary.csproj" />
+  </ItemGroup>
 </Project>
