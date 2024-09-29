@@ -1,74 +1,55 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
+﻿// Install NuGet packages `NATS.Net`, `NATS.Client.Serializers.Json` and `Microsoft.Extensions.Logging.Console`.
+using Microsoft.Extensions.Logging;
 using NATS.Client.Core;
-Console.WriteLine("Hello, World!");
+using NATS.Client.Serializers.Json;
 
+using var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
+var logger = loggerFactory.CreateLogger("NATS-by-Example");
 
-
-var stopwatch = Stopwatch.StartNew();
-
-
+// `NATS_URL` environment variable can be used to pass the locations of the NATS servers.
 var url = Environment.GetEnvironmentVariable("NATS_URL") ?? "127.0.0.1:4222";
-Console.WriteLine($"[CON] Connecting to {url}...");
 
-
-var opts = NatsOpts.Default with { Url = url };
+// Connect to NATS server. Since connection is disposable at the end of our scope we should flush
+// our buffers and close connection cleanly.
+var opts = new NatsOpts
+{
+    Url = url,
+    LoggerFactory = loggerFactory,
+    SerializerRegistry = NatsJsonSerializerRegistry.Default,
+    Name = "NATS-by-Example",
+};
 await using var nats = new NatsConnection(opts);
 
+// Subscribe to a subject and start waiting for messages in the background.
+await using var sub = await nats.SubscribeCoreAsync<Order>("orders.>");
 
-await using var sub = await nats.SubscribeCoreAsync<int>("greet.*");
-
-
-var reader = sub.Msgs;
-var responder = Task.Run(async () =>
+logger.LogInformation("Waiting for messages...");
+var task = Task.Run(async () =>
 {
-    await foreach (var msg in reader.ReadAllAsync())
+    await foreach (var msg in sub.Msgs.ReadAllAsync())
     {
-        var name = msg.Subject.Split('.')[1];
-        Console.WriteLine($"[REP] Received {msg.Subject}");
-        await Task.Delay(500);
-        await msg.ReplyAsync($"Hello {name}!");
+        var order = msg.Data;
+        logger.LogInformation("Subscriber received {Subject}: {Order}", msg.Subject, order);
     }
+
+    logger.LogInformation("Unsubscribed");
 });
 
-var replyOpts = new NatsSubOpts { Timeout = TimeSpan.FromSeconds(2) };
+// Let's publish a few orders.
+for (int i = 0; i < 5; i++)
+{
+    logger.LogInformation("Publishing order {Index}...", i);
+    await nats.PublishAsync($"orders.new.{i}", new Order(OrderId: i));
+    await Task.Delay(500);
+}
 
-Console.WriteLine("[REQ] From joe");
-var reply = await nats.RequestAsync<int, string>("greet.joe", 0, replyOpts: replyOpts);
-Console.WriteLine($"[REQ] {reply.Data}");
-
-
-Console.WriteLine("[REQ] From sue");
-reply = await nats.RequestAsync<int, string>("greet.sue", 0, replyOpts: replyOpts);
-Console.WriteLine($"[REQ] {reply.Data}");
-
-
-Console.WriteLine("[REQ] From bob");
-reply = await nats.RequestAsync<int, string>("greet.bob", 0, replyOpts: replyOpts);
-Console.WriteLine($"[REQ] {reply.Data}");
-
-
+// We can unsubscribe now all orders are published. Unsubscribing or disposing the subscription
+// should complete the message loop and exit the background task cleanly.
 await sub.UnsubscribeAsync();
+await task;
 
-await responder;
-try
-{
-    reply = await nats.RequestAsync<int, string>("greet.joe", 0, replyOpts: replyOpts);
-    Console.WriteLine($"[REQ] {reply.Data} - This will timeout. We should not see this message.");
-}
-catch (NatsNoReplyException)
-{
-    Console.WriteLine($"Timed out as expected.");
-    Console.WriteLine("[REQ] timed out!");
-}
+// That's it! We saw how we can subscribe to a subject and publish messages that would
+// be seen by the subscribers based on matching subjects.
+logger.LogInformation("Bye!");
 
-
-Console.WriteLine("Bye!");
-
-
-return;
-
-
-//void Log(string log) => Console.WriteLine($"{stopwatch.Elapsed} {log}");
+public record Order(int OrderId);
