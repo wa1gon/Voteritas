@@ -1,7 +1,7 @@
-# Trusted Voting System Using PKI - README
+# Voteritas Voting System Using PKI - README
 
 ## Overview
-
+### Status - Work in progress.  Mainly high-level design and layout.
 ### VoteVeritas – The Next Generation of Trusted Voting Systems
 
 **VoteVeritas** is an advanced, secure, and transparent voting platform designed 
