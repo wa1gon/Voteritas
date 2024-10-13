@@ -12,42 +12,41 @@ using Serilog.Sinks.SystemConsole.Themes;
 
 var darkTheme = new AnsiConsoleTheme(new Dictionary<ConsoleThemeStyle, string>
 {
-    [ConsoleThemeStyle.Text] = "\x1b[37m",  // White text
-    [ConsoleThemeStyle.SecondaryText] = "\x1b[30m",  // Black
-    [ConsoleThemeStyle.TertiaryText] = "\x1b[30m",  // Black
-    [ConsoleThemeStyle.Invalid] = "\x1b[31m",  // Red
-    [ConsoleThemeStyle.Null] = "\x1b[1;30m",  // Gray
-    [ConsoleThemeStyle.Name] = "\x1b[1;37m",  // Bold white
-    [ConsoleThemeStyle.String] = "\x1b[1;33m",  // Yellow
-    [ConsoleThemeStyle.Number] = "\x1b[1;32m",  // Green
-    [ConsoleThemeStyle.Boolean] = "\x1b[1;32m",  // Green
-    [ConsoleThemeStyle.Scalar] = "\x1b[1;33m",  // Yellow
-    [ConsoleThemeStyle.LevelVerbose] = "\x1b[1;30m",  // Gray
-    [ConsoleThemeStyle.LevelDebug] = "\x1b[1;34m",  // Blue
-    [ConsoleThemeStyle.LevelInformation] = "\x1b[1;36m",  // Cyan
-    [ConsoleThemeStyle.LevelWarning] = "\x1b[1;33m",  // Yellow
-    [ConsoleThemeStyle.LevelError] = "\x1b[1;31m",  // Red
-    [ConsoleThemeStyle.LevelFatal] = "\x1b[1;31m",  // Red
+    #region program.cs serilog logger
+
+    [ConsoleThemeStyle.Text] = "\x1b[37m", // White text
+    [ConsoleThemeStyle.SecondaryText] = "\x1b[30m", // Black
+    [ConsoleThemeStyle.TertiaryText] = "\x1b[30m", // Black
+    [ConsoleThemeStyle.Invalid] = "\x1b[31m", // Red
+    [ConsoleThemeStyle.Null] = "\x1b[1;30m", // Gray
+    [ConsoleThemeStyle.Name] = "\x1b[1;37m", // Bold white
+    [ConsoleThemeStyle.String] = "\x1b[1;33m", // Yellow
+    [ConsoleThemeStyle.Number] = "\x1b[1;32m", // Green
+    [ConsoleThemeStyle.Boolean] = "\x1b[1;32m", // Green
+    [ConsoleThemeStyle.Scalar] = "\x1b[1;33m", // Yellow
+    [ConsoleThemeStyle.LevelVerbose] = "\x1b[1;30m", // Gray
+    [ConsoleThemeStyle.LevelDebug] = "\x1b[1;34m", // Blue
+    [ConsoleThemeStyle.LevelInformation] = "\x1b[1;36m", // Cyan
+    [ConsoleThemeStyle.LevelWarning] = "\x1b[1;33m", // Yellow
+    [ConsoleThemeStyle.LevelError] = "\x1b[1;31m", // Red
+    [ConsoleThemeStyle.LevelFatal] = "\x1b[1;31m", // Red
 });
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
-    .WriteTo.Console(outputTemplate: "{Timestamp:HH:mm:ss} [{Level:u3}] {Message:lj}{NewLine}{Exception}", 
+    .WriteTo.Console(outputTemplate: "{Timestamp:HH:mm:ss} [{Level:u3}] {Message:lj}{NewLine}{Exception}",
         theme: darkTheme) // Log to console
     .WriteTo.File("c:\\Voteritoas\\logs/log.txt") // Log to a file
     .CreateLogger();
 Log.Information("ElectionAuthorityService is starting.");
 
+#endregion
+
 try
 {
     var builder = WebApplication.CreateBuilder(args);
-    builder.Host.SerilogConfiguration();
-
+    builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
 
     Log.Information("ElectionAuthorityService is starting.");
-    var i = 0;
-    var foo =  2/i;
-// builder.Host.UseSerilog();
-// Add services to the container.
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
     builder.Services.AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(connectionString));

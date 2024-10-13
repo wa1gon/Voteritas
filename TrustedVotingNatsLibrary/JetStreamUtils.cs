@@ -6,15 +6,16 @@ public  static class JetStreamUtils
     {
         try
         {
+            Log.Information("Top of EnsureStreamExists");
             IJetStreamManagement jsm = connection.CreateJetStreamManagementContext();
             StreamInfo streamInfo = jsm.GetStreamInfo(streamName);
             // logger.LogInformation().LogInformation($"Stream '{streamName}' already exists.");
         }
         catch (NATSJetStreamException ex)
         {
-            if (ex.ErrorCode == 10059) // Stream not found
+            if (ex.ErrorCode == 404) // Stream not found
             {
-                // logger.LogInformation($"Stream '{streamName}' does not exist. Creating it now...");
+                logger.Information($"Stream '{streamName}' does not exist. Creating it now...");
 
                 StreamConfiguration streamConfig = StreamConfiguration.Builder()
                     .WithName(streamName)
@@ -24,11 +25,11 @@ public  static class JetStreamUtils
                 IJetStreamManagement jsm = connection.CreateJetStreamManagementContext();
                 jsm.AddStream(streamConfig);
 
-                // logger.LogInformation($"Stream '{streamName}' created successfully.");
+                logger.Information($"Stream '{streamName}' created successfully.");
             }
             else
             {
-                // logger.LogError(ex, $"Error checking or creating stream '{streamName}'");
+                logger.Error(ex, $"Error checking or creating stream '{streamName}'");
             }
         }
     }

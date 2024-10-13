@@ -16,7 +16,7 @@ public class ElectionAuthorityService : IHostedService, IDisposable
 
     public Task StartAsync(CancellationToken cancellationToken)
     {
-        _logger.Information("ElectionAuthorityService is starting.");
+        Log.Information("ElectionAuthorityService is starting.");
 
         PullSubscribeOptions pullOptions = PullSubscribeOptions.Builder()
             .WithDurable("durable-election-authority")
@@ -26,6 +26,7 @@ public class ElectionAuthorityService : IHostedService, IDisposable
         options.Url = "nats://localhost:4222"; // NATS server URL
 
         connection = new ConnectionFactory().CreateConnection(options);
+        _logger.Information("before checking for stream");
         JetStreamUtils.EnsureStreamExists(connection, "VoterRegistrationStream", "election.voter.register", _logger);
         IJetStream js = connection.CreateJetStreamContext();
 
