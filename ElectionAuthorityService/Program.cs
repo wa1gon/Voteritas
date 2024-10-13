@@ -7,9 +7,18 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+Log.Logger = new LoggerConfiguration()
+    .ReadFrom.Configuration(builder.Configuration) // Read from appsettings.json
+    .Enrich.FromLogContext()
+    .WriteTo.Console() // Log to console
+    .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day) // Log to a file
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

@@ -15,6 +15,7 @@ public class ElectionAuthorityService : IHostedService, IDisposable
     public Task StartAsync(CancellationToken cancellationToken)
     {
         _logger.LogInformation("ElectionAuthorityService is starting.");
+
         PullSubscribeOptions pullOptions = PullSubscribeOptions.Builder()
             .WithDurable("durable-election-authority")
             .Build();
