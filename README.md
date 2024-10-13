@@ -1,12 +1,37 @@
-# Trusted Voting System Using PKI - README
+# Voteritas Voting System Using PKI - README
 
 ## Overview
+### Status - Work in progress.  Mainly high-level design and layout.
+### VoteVeritas – The Next Generation of Trusted Voting Systems
 
-This project implements a trusted voting system using Public Key Infrastructure
-(PKI) to securely sign and validate votes. The system is designed to ensure the
-integrity of the election process by verifying voter identities, preventing
-multiple votes, and maintaining the anonymity of ballots. The system is built
-using C# and follows best practices for cryptography and PKI.
+**VoteVeritas** is an advanced, secure, and transparent voting platform designed 
+to ensure the integrity of elections in the digital age. By leveraging 
+cutting-edge **Public Key Infrastructure (PKI)** and **blockchain-inspired** 
+technology, VoteVeritas guarantees that each vote is cast, recorded, and counted 
+with the utmost accuracy and confidentiality.
+
+#### Key Features:
+- **PKI-Backed Voter Authentication**: Ensures that every voter is verified 
+  through unique, trusted digital certificates, preventing voter fraud and 
+  impersonation.
+- **Tamper-Proof Voting Records**: Leveraging cryptographic methods to provide 
+  immutable records, ensuring no vote can be altered after submission.
+- **Complete Anonymity**: VoteVeritas decouples voter identities from their 
+  votes, ensuring total privacy while allowing the system to track voting 
+  legitimacy.
+- **End-to-end Transparency**: Real-time audits and verifiable ballots allow 
+  voters, election officials, and third-party auditors to review the system's 
+  integrity without compromising privacy.
+- **Resilient Against Attacks**: Built-in redundancy, encryption, and security 
+  measures protect the voting process from cyberattacks, tampering, and system 
+  failures.
+- **User-Friendly Interface**: Designed for easy access and use, allowing voters 
+  and election officials to navigate the platform with minimal technical 
+  expertise.
+
+At **VoteVeritas**, we aim to restore trust in the voting process by providing a 
+robust, transparent, and tamper-proof solution for democratic elections. VoteVeritas 
+is the future of secure, digital voting for local, state, or national elections.
 
 ## Key Components
 

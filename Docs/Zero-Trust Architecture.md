@@ -18,6 +18,7 @@ validation of trust. NATS provides features such as **TLS encryption**,
    monitoring connections and enforcing fine-grained access control.
 5. **Segmentation**: Isolate different parts of the system and enforce policies 
    at every boundary.
+6. No private keys are stored on the NATS system
 
 ## Steps to Implement Zero-Trust with NATS
 

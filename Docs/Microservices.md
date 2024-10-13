@@ -1,7 +1,7 @@
 # Voting System Microservice Overview
 
 ## 1. Election Authority Microservice
-- **Role**: Responsible for managing and issuing **trusted certificates** for the voting block (e.g., state or club). This service ensures that each voter registrar has the necessary authority to issue valid voter certificates.
+- **Role**: Responsible for managing and issuing **trusted certificates** for the voting block (e.g., state, union, club, etc). This service ensures that each voter registrar has the necessary authority to issue valid voter certificates.
 - **Main Responsibilities**:
   - Manage root certificates.
   - Issue certificates for voter registrars.
