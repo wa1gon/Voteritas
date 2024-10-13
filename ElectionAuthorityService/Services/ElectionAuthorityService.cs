@@ -1,23 +1,23 @@
-using Serilog;
 using TrustedVoteLibrary.Utils;
+using Serilog;
 
 namespace ElectionAuthorityService.Services;
 
 public class ElectionAuthorityService : IHostedService, IDisposable
 {
-    private readonly ILogger<ElectionAuthorityService> _logger;
+    private readonly Serilog.ILogger _logger;
     private IConnection connection;
     private IJetStreamPullSubscription subscription;
     private Timer timer;
     
-    public ElectionAuthorityService(ILogger<ElectionAuthorityService> logger)
+    public ElectionAuthorityService(Serilog.ILogger logger)
     {
         _logger = logger;
     }
 
     public Task StartAsync(CancellationToken cancellationToken)
     {
-        _logger.LogInformation("ElectionAuthorityService is starting.");
+        _logger.Information("ElectionAuthorityService is starting.");
 
         PullSubscribeOptions pullOptions = PullSubscribeOptions.Builder()
             .WithDurable("durable-election-authority")
@@ -41,7 +41,7 @@ public class ElectionAuthorityService : IHostedService, IDisposable
 
     private void ProcessMessages(object state)
     {
-        _logger.LogInformation("Checking for messages...");
+        _logger.Information("Checking for messages...");
 
         try
         {
@@ -61,12 +61,12 @@ public class ElectionAuthorityService : IHostedService, IDisposable
 
                     if (VerifySignature(jsonPayload, signature, rsa))
                     {
-                        _logger.LogInformation("Signature verified! Valid payload.");
-                        _logger.LogInformation($"Payload: {jsonPayload}");
+                        _logger.Information("Signature verified! Valid payload.");
+                        _logger.Information($"Payload: {jsonPayload}");
                     }
                     else
                     {
-                        _logger.LogWarning("Signature verification failed.");
+                        _logger.Warning("Signature verification failed.");
                     }
                 }
 
@@ -76,7 +76,7 @@ public class ElectionAuthorityService : IHostedService, IDisposable
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error while processing messages.");
+            _logger.Error(ex, "Error while processing messages.");
         }
     }
 
@@ -90,7 +90,7 @@ public class ElectionAuthorityService : IHostedService, IDisposable
 
     public Task StopAsync(CancellationToken cancellationToken)
     {
-        _logger.LogInformation("ElectionAuthorityService is stopping.");
+        _logger.Information("ElectionAuthorityService is stopping.");
         timer?.Change(Timeout.Infinite, 0);
         connection?.Dispose();
         return Task.CompletedTask;
