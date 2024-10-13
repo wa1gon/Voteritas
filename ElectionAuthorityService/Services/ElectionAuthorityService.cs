@@ -1,11 +1,14 @@
+using Serilog;
+using TrustedVoteLibrary.Utils;
+
 namespace ElectionAuthorityService.Services;
 
 public class ElectionAuthorityService : IHostedService, IDisposable
 {
     private readonly ILogger<ElectionAuthorityService> _logger;
-    private IConnection _connection;
-    private IJetStreamPullSubscription _subscription;
-    private Timer _timer;
+    private IConnection connection;
+    private IJetStreamPullSubscription subscription;
+    private Timer timer;
     
     public ElectionAuthorityService(ILogger<ElectionAuthorityService> logger)
     {
@@ -23,14 +26,15 @@ public class ElectionAuthorityService : IHostedService, IDisposable
         var options = ConnectionFactory.GetDefaultOptions();
         options.Url = "nats://localhost:4222"; // NATS server URL
 
-        _connection = new ConnectionFactory().CreateConnection(options);
-        IJetStream js = _connection.CreateJetStreamContext();
+        connection = new ConnectionFactory().CreateConnection(options);
+        JetStreamUtils.EnsureStreamExists(connection, "VoterRegistrationStream", "election.voter.register", _logger);
+        IJetStream js = connection.CreateJetStreamContext();
 
         // Subscribe to the JetStream subject with a durable subscription
-        _subscription = js.PullSubscribe("election.voter.register", pullOptions);
+        subscription = js.PullSubscribe("election.voter.register", pullOptions);
 
         // Start processing messages periodically
-        _timer = new Timer(ProcessMessages, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
+        timer = new Timer(ProcessMessages, null, TimeSpan.Zero, TimeSpan.FromSeconds(5));
 
         return Task.CompletedTask;
     }
@@ -41,7 +45,7 @@ public class ElectionAuthorityService : IHostedService, IDisposable
 
         try
         {
-            var messages = _subscription.Fetch(10, 1000); // Fetch 10 messages or wait for max 1000 ms
+            var messages = subscription.Fetch(10, 1000); // Fetch 10 messages or wait for max 1000 ms
 
             foreach (var msg in messages)
             {
@@ -87,14 +91,14 @@ public class ElectionAuthorityService : IHostedService, IDisposable
     public Task StopAsync(CancellationToken cancellationToken)
     {
         _logger.LogInformation("ElectionAuthorityService is stopping.");
-        _timer?.Change(Timeout.Infinite, 0);
-        _connection?.Dispose();
+        timer?.Change(Timeout.Infinite, 0);
+        connection?.Dispose();
         return Task.CompletedTask;
     }
 
     public void Dispose()
     {
-        _timer?.Dispose();
-        _connection?.Dispose();
+        timer?.Dispose();
+        connection?.Dispose();
     }
 }

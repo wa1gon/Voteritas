@@ -1,8 +1,5 @@
-
-global using Microsoft.Extensions.Hosting;
 global using NATS.Client;
 global using NATS.Client.JetStream;
-global using Newtonsoft.Json;
 global using System;
 global using System.Security.Cryptography;
 global using System.Text;
