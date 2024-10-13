@@ -8,55 +8,90 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
+using Serilog.Sinks.SystemConsole.Themes;
 
-var builder = WebApplication.CreateBuilder(args);
-
+var darkTheme = new AnsiConsoleTheme(new Dictionary<ConsoleThemeStyle, string>
+{
+    [ConsoleThemeStyle.Text] = "\x1b[37m",  // White text
+    [ConsoleThemeStyle.SecondaryText] = "\x1b[30m",  // Black
+    [ConsoleThemeStyle.TertiaryText] = "\x1b[30m",  // Black
+    [ConsoleThemeStyle.Invalid] = "\x1b[31m",  // Red
+    [ConsoleThemeStyle.Null] = "\x1b[1;30m",  // Gray
+    [ConsoleThemeStyle.Name] = "\x1b[1;37m",  // Bold white
+    [ConsoleThemeStyle.String] = "\x1b[1;33m",  // Yellow
+    [ConsoleThemeStyle.Number] = "\x1b[1;32m",  // Green
+    [ConsoleThemeStyle.Boolean] = "\x1b[1;32m",  // Green
+    [ConsoleThemeStyle.Scalar] = "\x1b[1;33m",  // Yellow
+    [ConsoleThemeStyle.LevelVerbose] = "\x1b[1;30m",  // Gray
+    [ConsoleThemeStyle.LevelDebug] = "\x1b[1;34m",  // Blue
+    [ConsoleThemeStyle.LevelInformation] = "\x1b[1;36m",  // Cyan
+    [ConsoleThemeStyle.LevelWarning] = "\x1b[1;33m",  // Yellow
+    [ConsoleThemeStyle.LevelError] = "\x1b[1;31m",  // Red
+    [ConsoleThemeStyle.LevelFatal] = "\x1b[1;31m",  // Red
+});
 Log.Logger = new LoggerConfiguration()
-    .ReadFrom.Configuration(builder.Configuration) // Read from appsettings.json
-    .Enrich.FromLogContext()
-    .WriteTo.Console() // Log to console
-    .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day) // Log to a file
+    .MinimumLevel.Information()
+    .WriteTo.Console(outputTemplate: "{Timestamp:HH:mm:ss} [{Level:u3}] {Message:lj}{NewLine}{Exception}", 
+        theme: darkTheme) // Log to console
+    .WriteTo.File("c:\\Voteritoas\\logs/log.txt") // Log to a file
     .CreateLogger();
+Log.Information("ElectionAuthorityService is starting.");
 
-builder.Host.UseSerilog();
+try
+{
+    var builder = WebApplication.CreateBuilder(args);
+    builder.Host.SerilogConfiguration();
+
+
+    Log.Information("ElectionAuthorityService is starting.");
+    var i = 0;
+    var foo =  2/i;
+// builder.Host.UseSerilog();
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
-builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
-builder.Services.AddSingleton<WeatherForecastService>();
-builder.Services.AddHostedService<ElectionAuthorityService.Services.ElectionAuthorityService>();
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseSqlServer(connectionString));
+    builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+    builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+        .AddEntityFrameworkStores<ApplicationDbContext>();
+    builder.Services.AddRazorPages();
+    builder.Services.AddServerSideBlazor();
+    builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
+    builder.Services.AddSingleton<WeatherForecastService>();
+    builder.Services.AddHostedService<ElectionAuthorityService.Services.ElectionAuthorityService>();
+// builder.Services.AddSerilog(Log.Logger)
+//     .AddHostedService<Worker>();
 
-var app = builder.Build();
+    var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseMigrationsEndPoint();
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseMigrationsEndPoint();
+    }
+    else
+    {
+        app.UseExceptionHandler("/Error");
+        // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+        app.UseHsts();
+    }
+
+    app.UseHttpsRedirection();
+
+    app.UseStaticFiles();
+
+    app.UseRouting();
+
+    app.UseAuthentication();
+    app.UseAuthorization();
+
+    app.MapControllers();
+    app.MapBlazorHub();
+    app.MapFallbackToPage("/_Host");
+
+    app.Run();
 }
-else
+catch (Exception e)
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    Log.Logger.Fatal(e, "Fatal error occurred during startup.");
 }
-
-app.UseHttpsRedirection();
-
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.MapControllers();
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
-
-app.Run();

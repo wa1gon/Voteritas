@@ -1,10 +1,9 @@
 using TrustedVoteLibrary.Utils;
-using Serilog;
-
 namespace ElectionAuthorityService.Services;
 
 public class ElectionAuthorityService : IHostedService, IDisposable
 {
+
     private readonly Serilog.ILogger _logger;
     private IConnection connection;
     private IJetStreamPullSubscription subscription;
