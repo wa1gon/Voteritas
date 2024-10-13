@@ -21,7 +21,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddSingleton<WeatherForecastService>();
-builder.Services.AddSingleton<JetSteamService>();
+builder.Services.AddHostedService<ElectionAuthorityService.Services.ElectionAuthorityService>();
 
 var app = builder.Build();
 
